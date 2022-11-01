@@ -17,7 +17,7 @@ const formatLocation = (location) => {
 }
 
 const Clock = ( props ) => {
-  const [time, setTime] = useState(date(props.timeZone));
+  const [time, setTime] = useState(() => date(props.timeZone));
   
   useEffect(()=>{
     setTimeout(() => {
@@ -25,8 +25,8 @@ const Clock = ( props ) => {
     }, 1000)
   }, [time])
 
-  return <article className='article'>
-    <h3>{time}</h3>
+  return <article className='article' data-testid="hasHTML">
+    <h3 data-testid="time">{time}</h3>
     <p>{formatLocation(props.timeZone)}</p>
   </article>
 };
