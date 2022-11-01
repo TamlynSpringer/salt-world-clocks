@@ -9,5 +9,10 @@ describe(Board, ()=>{
       const container = getByTestId("container");
       expect(container.children.length).toEqual(8)
     })
+    it('Array of cities should not to be empty', ()=>{
+      const { getByTestId } = render(<Board />);
+      const container = getByTestId("container");
+      expect(container.children.length).not.toBe(0);
+    })
 })
 
